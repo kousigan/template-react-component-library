@@ -1,13 +1,13 @@
 import React from "react";
 import "./Button.scss";
-import { StyledButton } from "./StyledButton";
+import StyledButton from './StyledButton';
 
-export interface ButtonProps {
+export interface IButtonProps {
   label: string;
 }
 
-const Button = (props: ButtonProps) => {
-  return <StyledButton>{props.label}</StyledButton>;
+const Button = ({label}:IButtonProps) => {
+  return <button>{label}</button>;
 };
 
 export default Button;

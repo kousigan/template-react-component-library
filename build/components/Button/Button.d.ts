@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import "./Button.scss";
-export interface ButtonProps {
+export interface IButtonProps {
     label: string;
 }
-declare const Button: (props: ButtonProps) => JSX.Element;
+declare const Button: ({ label }: IButtonProps) => JSX.Element;
 export default Button;

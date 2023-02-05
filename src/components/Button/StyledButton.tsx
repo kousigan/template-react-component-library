@@ -1,10 +1,9 @@
-import styled from "styled-components";
+import React from 'react';
+import { styled } from '@mui/material/styles';
+import Button, { ButtonProps } from '@mui/material/Button';
 
-const StyledButton = styled.button`
-    padding: 6px 10px;
-    cursor:pointer;
-    border:0;
-    border-radius:3px;
-`;
+const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
+    backgroundColor: 'purple',
+  }));
 
-export { StyledButton };
+  export default ColorButton;

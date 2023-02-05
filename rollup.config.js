@@ -5,8 +5,12 @@ import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
 import babel from 'rollup-plugin-babel';
+import createStyledComponentsTransformer from 'typescript-plugin-styled-components';
 
 const packageJson = require("./package.json");
+const styledComponentsTransformer = createStyledComponentsTransformer({
+  displayName: true,
+});
 
 export default [
   {
@@ -32,7 +36,14 @@ export default [
         exclude: 'node_modules/**',
         presets: ['@babel/env', '@babel/preset-react']
       }),
-      typescript({ useTsconfigDeclarationDir: true })
+      typescript({ useTsconfigDeclarationDir: true },
+      {
+        transformers: [
+          () => ({
+            before: [styledComponentsTransformer],
+          }),
+        ],
+      })
     ]
   }, {
     input: "dist/esm/types/index.d.ts",
