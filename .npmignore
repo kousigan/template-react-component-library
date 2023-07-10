@@ -1,6 +1,6 @@
-.storybook
-node_modules
+/.storybook
+/node_modules
 .gitignore
-src
+/src
 tsconfig.json
 rollup.config.js
